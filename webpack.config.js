@@ -14,6 +14,7 @@ module.exports = {
       {
         // 正则匹配所有css文件
         test: /\.css$/,
+        // 由后往前，以querystring传递参数
         use: ['style-loader', 'css-loader?minimize']
       }
     ]
