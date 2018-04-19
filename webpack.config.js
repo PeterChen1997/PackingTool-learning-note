@@ -1,27 +1,31 @@
-const path = require('path')
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  // 项目入口文件
+  // JS 执行入口文件
   entry: './main.js',
   output: {
-    // 打包文件地址
+    // 把所有依赖的模块合并输出到一个 bundle.js 文件
     filename: 'bundle.js',
-    // 项目输出文件地址
-    path: path.resolve(__dirname, './dist')
+    // 输出文件都放到 dist 目录下
+    path: path.resolve(__dirname, './dist'),
   },
   module: {
     rules: [
       {
-        // 正则匹配所有css文件
+        // 用正则去匹配要用该 loader 转换的 css 文件
         test: /\.css$/,
-        // 由后往前，以querystring传递参数,或者对象传
-        use: ['style-loader', {
-          loader: 'css-loader',
-          options: {
-            minimize: true
-          }
-        }]
+        use: ExtractTextPlugin.extract({
+          // 转换 .css 文件需要使用的 Loader
+          use: ['css-loader']
+        }),
       }
     ]
-  }
-}
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      // 从 .js 文件中提取出来的 .css 文件的名称
+      filename: `[name]_[hash:8].css`,
+    }),
+  ]
+};
