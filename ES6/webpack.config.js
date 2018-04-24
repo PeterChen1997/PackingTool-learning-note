@@ -1,4 +1,12 @@
+const path = require('path')
+
 module.exports = {
+  // 执行入口文件
+  entry: './index',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, './dist'),
+  },
   module: {
     rules: [
       {
