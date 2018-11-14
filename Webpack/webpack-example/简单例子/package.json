@@ -1,0 +1,24 @@
+{
+  "name": "webpack-learning-note",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.25.1",
+    "wepack-cli": "^1.0.0"
+  },
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterChen1997/webpack-learning-note.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeterChen1997/webpack-learning-note/issues"
+  },
+  "homepage": "https://github.com/PeterChen1997/webpack-learning-note#readme"
+}
